@@ -1,0 +1,54 @@
+<View style={styles.container}>
+     <View style={styles.topBar}>
+
+      <TouchableOpacity onPress={() => navigation.navigate('Vehiculos registrados')}>
+        <Text style={styles.topBarLink}>Vehiculos registrados</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Citas')}>
+        <Text style={styles.topBarLink}>Citas</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Historial citas')}>
+        <Text style={styles.topBarLink}>Historial</Text>
+      </TouchableOpacity>
+       <TouchableOpacity onPress={() => navigation.navigate('Reportes')}>
+        <Text style={styles.topBarLink}>Reportes</Text>
+      </TouchableOpacity>
+    </View>
+    <Text style={styles.title}>                         </Text>
+      <Text style={styles.title}>Historial de Servicios</Text>
+      <ScrollView>
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.row}>
+              <Image source={{ uri: item.imagen }} style={styles.imageExtended} />
+              <View style={styles.infoContainerExtended}>
+                <Text style={styles.text}><Text style={styles.label}>Servicio:</Text> {item.servicio}</Text>
+                <Text style={styles.text}><Text style={styles.label}>Fecha:</Text> {item.fecha}</Text>
+                <Text style={styles.text}><Text style={styles.label}>Costo:</Text> {item.costo}</Text>
+                <Text style={styles.text}><Text style={styles.label}>Vehículo:</Text> {item.vehiculo}</Text>
+              </View>
+            </View>
+          )}
+        />
+         <View style={styles.downBar}>
+        <View style={styles.buttonsRow}>
+          <TouchableOpacity onPress={() => Linking.openURL('https://www.facebook.com/VolkswagenMX')}>
+            <Text style={styles.topBarTexto}>Facebook</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Linking.openURL('https://maps.app.goo.gl/vFyTStcQUGPsUSdH8')}>
+            <Text style={styles.topBarTexto}>Ubicación</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={tel1}>
+            <Text style={styles.topBarTexto}>Soporte ✆</Text>
+          </TouchableOpacity>
+        </View>
+
+ 
+        <Text style={styles.topBarTexto}>Aviso de privacidad</Text>
+
+        <Text style={styles.topBarTexto}>© Volkswagen 2025 todos los derechos reservados</Text>
+      </View>
+      </ScrollView>
+    </View>
